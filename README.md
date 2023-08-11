@@ -21,6 +21,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - Translations of texts to other languages.
 
 ## Notes
+- Used data from [Mitigram Starter](https://stackblitz.com/edit/mitigram-starter)
 - As the image request were returning an error placeholder user icons were used. The icons were also planned to be used for the addition of emails that do not exist in the counterparty list.
 - Sorting is currently possible by group name or counterparty first and last name.
 - The app was mainly tested on Chrome and Firefox, possible bugs may be present for other browsers.
