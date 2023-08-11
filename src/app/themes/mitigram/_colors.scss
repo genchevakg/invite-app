@@ -1,0 +1,73 @@
+@use "sass:map";
+
+$mitigram-palette: (
+    "light-100": #EBFAFF,
+    "light-200": #D7F2FB,
+    "light-300": #C1E9F7,
+    "light-400": #ACE1F3,
+    "medium-100": #98D9EF,
+    "medium-200": #7ECFEA,
+    "medium-300": #2CABD3,
+    "medium-400": #1E94BA,
+    "dark-100": #177998,
+    "dark-200": #0F586F,
+    "dark-300": #084153,
+    "dark-400": #042732,
+);
+
+$grey-palette: (
+    "light-100": #FFFFFF,
+    "light-200": #EFEFEF,
+    "light-300": #E7E7E7,
+    "light-400": #DBDBDB,
+    "medium-100": #D3D3D3,
+    "medium-200": #C6C6C6,
+    "medium-300": #838383,
+    "medium-400": #737373,
+    "dark-100": #5D5D5D,
+    "dark-200": #4D4D4D,
+    "dark-300": #373737,
+    "dark-400": #181818,
+);
+
+$notification-color: #F96429;
+$primary-color: map.get($mitigram-palette, "medium-300");
+$outline-color: map.get($grey-palette, "medium-200");
+$btn-color: map.get($grey-palette, "light-100");
+$disabled-btn-color: #B9B9B9;
+$heading-color: #235565;
+$accent-color: map.get($mitigram-palette, "dark-100");
+$text-color: map.get($grey-palette, "dark-100");
+
+$mitigram-theme-palette: (
+  50: #EBFAFF,
+  100:#C1E9F7,
+  200: #ACE1F3,
+  300: #7ECFEA,
+  400: #2CABD3,
+  500: #1E94BA,
+  600: #177998,
+  700: #0F586F,
+  800: #084153,
+  900: #042732,
+  A100: #D7F2FB,  
+  A200: #98D9EF,
+  A400: #1E94BA,
+  A700: #084153,
+  contrast: (
+    50:  #5D5D5D,
+    100:  #5D5D5D,
+    200:  #5D5D5D,
+    300:  #5D5D5D,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100:  #5D5D5D,
+    A200:  #5D5D5D,
+    A400: white,
+    A700: white,
+  )
+);

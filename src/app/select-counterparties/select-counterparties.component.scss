@@ -1,0 +1,19 @@
+.dialog-body {
+    overflow: hidden;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0px, 500px);
+    .dialog-footer {
+        padding-right: 0px;
+    }
+}
+
+.close-btn {
+    margin-right: 10px;
+    --mat-mdc-button-persistent-ripple-color: none;
+}
+
+cdk-virtual-scroll-viewport {
+    height: 60vh;
+    width: 100%;
+}

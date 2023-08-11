@@ -1,0 +1,33 @@
+
+@mixin input-styles($height: 50px) {
+  .mat-mdc-form-field-flex, mat-form-field + button {
+    height: $height;
+  }
+}
+
+@mixin button-styles($text-color: white, $disabled-text-color: #B9B9B9, $hover-bg-color: initial) {
+  .mat-mdc-unelevated-button.mat-mdc-button-base:not(:disabled) {
+    --mdc-filled-button-label-text-color: white;
+  }
+  
+  button.mat-primary {
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+    &:not(:disabled) {
+      font-weight: 700;
+    }
+    &:disabled {
+      background-color: white;
+      color: $disabled-text-color;
+      border: 1px solid $disabled-text-color;
+    }
+  }
+}
+
+@mixin heading-styles($text-color: black) {
+  h2, h4 {
+    color: $text-color;
+  }
+}
+

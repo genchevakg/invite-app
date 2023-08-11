@@ -1,0 +1,24 @@
+<div class="panel-header">
+    <mat-icon (click)="toggleExpandPanel()">
+        <ng-container *ngIf="isExpanded; else expand">
+            expand_less
+        </ng-container>
+        <ng-template #expand>
+            expand_more
+        </ng-template>
+    </mat-icon>
+    <div>
+        {{title}}
+    </div>
+    <app-checkbox
+        *ngIf="status"
+        #groupCheckbox
+        [checked]="status === CheckboxStatus.checked"
+        [partialCheckbox]="true"
+        [partialAnswer]="status === CheckboxStatus.partial"
+        [formControl]="checkboxControl">test</app-checkbox>
+</div>
+<ng-container *ngIf="isExpanded">
+    <ng-content></ng-content>
+</ng-container>
+

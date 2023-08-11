@@ -1,0 +1,14 @@
+<div *ngIf="counterparty" class="counterparty-info">
+    <app-picture [picture]="counterparty.picture"></app-picture>
+    <div class="person-info">
+        <div *ngIf="counterparty.name">
+            {{ counterparty.name.first }} {{ counterparty.name.last }}
+        </div>
+        <div>
+            {{ counterparty.email }}
+        </div>
+    </div>
+    <app-checkbox [formControl]="control"></app-checkbox>
+</div>
+
+

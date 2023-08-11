@@ -1,0 +1,10 @@
+:host {
+    display: grid;
+    grid-template-columns: 50px minmax(50px, 450px) 50px;
+    align-items: center;
+    height: 40px;
+}
+
+mat-icon {
+    cursor: pointer;
+}

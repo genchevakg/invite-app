@@ -1,0 +1,72 @@
+@use '@angular/material' as mat;
+@use '../../../mixins.scss' as mixins;
+@use './colors';
+
+@include mat.core();
+
+$mitigram-primary: mat.define-palette(colors.$mitigram-theme-palette, 400, 100, 700);
+$mitigram-accent: mat.define-palette(colors.$mitigram-theme-palette, 600, 200, 800);
+$mitigram-warn: mat.define-palette(mat.$deep-orange-palette);
+
+$mitigram-theme: mat.define-light-theme((
+  color: (
+    primary: $mitigram-primary,
+    accent: $mitigram-accent,
+    warn: $mitigram-warn,
+  )
+));
+
+@include mat.all-component-themes($mitigram-theme);
+
+@include mixins.input-styles(50px);
+@include mixins.button-styles(colors.$btn-color, colors.$disabled-btn-color, colors.$accent-color);
+@include mixins.heading-styles(colors.$heading-color);
+
+body {
+  color: colors.$text-color;
+}
+
+.mat-mdc-dialog-container {
+  .mdc-dialog__title {
+    --mdc-dialog-subhead-color: colors.$text-color;
+  }
+  .mdc-dialog__content {
+    --mdc-dialog-supporting-text-color: colors.$text-color;
+  }
+}
+
+
+.mat-mdc-button-persistent-ripple {
+  display: none;
+}
+
+app-checkbox mat-icon {
+  border: 1px solid colors.$outline-color;
+  color: colors.$outline-color;
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+
+  &.checked {
+    background-color: colors.$primary-color;
+    color: colors.$btn-color;
+    border-color: colors.$primary-color;
+  }
+}
+
+mat-option.mat-mdc-option {
+  --mat-option-label-text-color: colors.$text-color;
+  &.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: initial;
+  }
+  mat-pseudo-checkbox.mat-pseudo-checkbox-minimal {
+    display: none;
+  }
+}
+
+.mdc-notched-outline > div {
+  border-color: colors.$outline-color;
+  &:hover {
+    border-color: colors.$outline-color;
+  }
+}

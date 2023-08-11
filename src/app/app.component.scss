@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-toolbar span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+app-invite-counterparties {
+    flex-grow: 1;
+}

@@ -1,0 +1,14 @@
+:host > div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+mat-select {
+    margin-left: 5px;
+    width: fit-content;
+}
+
+mat-option {
+    min-height: 1rem;
+}
+

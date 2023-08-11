@@ -1,0 +1,7 @@
+<div>
+    <span>Sort </span>
+    <mat-select #order panelWidth="fit-content" (selectionChange)="sortValues(order.value)">
+      <mat-option [value]="SortOrder.asc">asc</mat-option>
+      <mat-option [value]="SortOrder.desc">desc</mat-option>
+    </mat-select>
+</div>

@@ -1,0 +1,13 @@
+.selected-emails {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+cdk-virtual-scroll-viewport {
+    flex-grow: 1;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: minmax(150px, 550px);
+    width: -moz-available;
+}

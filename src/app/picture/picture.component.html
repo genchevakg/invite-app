@@ -1,0 +1,8 @@
+<div *ngIf="picture; else personIcon" class="person-icon">
+    <mat-icon>person</mat-icon>
+    <!--<img [src]="counterparty.picture">-->
+</div>
+
+<ng-template #personIcon>
+    <mat-icon>person</mat-icon>
+</ng-template>

@@ -1,0 +1,61 @@
+<div class="dialog-header">
+  <h1 mat-dialog-title *ngIf="data.groups; else titleCounterparties">Select Counterparty Groups</h1>
+  <ng-template #titleCounterparties>
+    <h1 mat-dialog-title>Select Counterparties</h1>
+  </ng-template>
+  <button mat-icon-button [disableRipple]="true" (click)="close()" class="close-btn">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-content *ngIf="counterparties$ | async as counterpartiesState; else noCounterparties" class="dialog-body">
+    <ng-container *ngIf="!counterpartiesState.loading; else loading">
+      <app-sort-select (sort)="sortOrder = $event"></app-sort-select>
+
+      <ng-container *ngIf="counterpartiesState.counterparties?.length; else noCounterparties">
+        <div *ngIf="data.groups; else counterpartyList">
+          <div *ngIf="counterpartiesState.counterparties | counterpartyGroups as groups">
+            <cdk-virtual-scroll-viewport [itemSize]="groups.length" [formGroup]="formGroup">
+              <app-expanding-panel *cdkVirtualFor="let group of (groups | sortValues: sortOrder)"
+                [title]="group[0]"
+                [status]="(formGroup.value | checkboxStatus: (group[1] | ids: group[0]))"
+                (checked)="selectCounterparties(group[1], $event)">
+                <div *ngFor="let counterparty of group[1]" class="counterparty">
+                  <app-counterparty-info [counterparty]="counterparty" formControlName="{{counterparty._id}}-{{group[0] | camelCase}}"></app-counterparty-info>
+                </div>
+              </app-expanding-panel>
+            </cdk-virtual-scroll-viewport>
+          </div>
+        </div>
+  
+        <ng-template #counterpartyList>
+          <cdk-virtual-scroll-viewport [itemSize]="counterpartiesState.counterparties.length" [formGroup]="formGroup">
+            <div *cdkVirtualFor="let counterparty of (counterpartiesState.counterparties| sortValues: sortOrder)" class="counterparty">
+              <app-counterparty-info [counterparty]="counterparty" [formControlName]="counterparty._id"></app-counterparty-info>
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </ng-template>
+
+        <div mat-dialog-actions class="dialog-footer">
+          <button mat-flat-button color="primary" [disabled]="formGroup.invalid" (click)="confirmSelection()">Confirm selection</button>
+        </div>
+      </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #loading>
+  <mat-progress-spinner></mat-progress-spinner>
+</ng-template>
+
+<ng-template #noCounterparties>
+  <div class="dialog-body">
+    <div mat-dialog-content>
+      No existing counterparties found.
+    </div>
+    <div mat-dialog-actions class="dialog-footer">
+      <button mat-flat-button color="primary" cdkFocusInitial (click)="close()">Ok</button>
+    </div>
+  </div>
+</ng-template>
+
+

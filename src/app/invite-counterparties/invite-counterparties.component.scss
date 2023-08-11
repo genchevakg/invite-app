@@ -1,0 +1,27 @@
+:host {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.add-counterparties {
+    display: flex;
+}
+
+.mat-mdc-unelevated-button.mat-mdc-button-base {
+    height: 50px;
+}
+
+app-selection {
+    flex-grow: 1;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}

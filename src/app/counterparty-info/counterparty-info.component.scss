@@ -1,0 +1,13 @@
+.counterparty-info {
+    display: grid;
+    grid-template-columns: 50px minmax(50px, auto) 50px;
+    align-items: center;
+}
+
+.person-info {
+    text-overflow: ellipsis;
+}
+
+mat-checkbox {
+    --mat-mdc-button-persistent-ripple-color: none;
+}

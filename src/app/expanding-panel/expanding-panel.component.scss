@@ -1,0 +1,4 @@
+.panel-header {
+    display: grid;
+    grid-template-columns: 50px minmax(50px, auto) 50px;
+}

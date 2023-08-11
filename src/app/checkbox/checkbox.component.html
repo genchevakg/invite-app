@@ -1,0 +1,9 @@
+<mat-icon (click)="toggleChecked()"
+    [ngClass]="{'checked': this.checked || (partialCheckbox && partialAnswer)}">
+    <ng-container *ngIf="partialAnswer">
+        remove
+    </ng-container>
+    <ng-container *ngIf="this.checked || !partialCheckbox">
+        check
+    </ng-container>
+</mat-icon>

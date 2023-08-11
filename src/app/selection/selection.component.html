@@ -1,0 +1,22 @@
+<div class="selected-emails">
+    <h4>
+        Selected emails:
+    </h4>
+    <ng-container *ngIf="selectedCounterparties$ | async as counterparties">
+        <ng-container *ngIf="counterparties?.length; else noSelection">
+            <cdk-virtual-scroll-viewport [itemSize]="counterparties.length">
+                <div *cdkVirtualFor="let counterparty of counterparties">
+                    <app-counterparty-preview [picture]="counterparty.picture"
+                        [email]="counterparty.email"
+                        (deleteEntry)="removeCounterpartySelection(counterparty)">
+                    </app-counterparty-preview>
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </ng-container>
+    </ng-container>
+    <ng-template #noSelection>
+        <div>
+            None.
+        </div>
+    </ng-template>
+</div>
